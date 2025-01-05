@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
       >
         {/* Header */}
         <header className="bg-gray-800 shadow-md">
-          <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="container mx-auto px-6 py-4 flex flex-wrap justify-between items-center">
             <h1 className="text-2xl font-extrabold text-blue-400">
               <Link href="/">Neueva</Link>
             </h1>
