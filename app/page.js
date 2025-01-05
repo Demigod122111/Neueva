@@ -1,101 +1,138 @@
-import Image from "next/image";
+// app/page.js
+import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div>
+      {/* Hero Section */}
+      <section className="text-center py-20 bg-gray-900">
+        <h1 className="text-5xl font-extrabold text-blue-400 mb-6">
+          Welcome to Neueva
+        </h1>
+        <p className="text-lg text-gray-300 mb-10">
+          Discover the best apps and games, curated for your needs.
+        </p>
+        <div className="flex justify-center space-x-6">
+          <Link
+            href="/browse"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Explore Now
+          </Link>
+          <Link
+            href="/about"
+            className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg"
           >
-            Read our docs
-          </a>
+            Learn More
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </section>
+
+      {/* Features Section */}
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 container mx-auto px-6 py-16">
+        {/* Featured App */}
+        <div className="bg-gray-800 rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+          <h2 className="text-2xl font-bold text-gray-100 mb-4">Featured App</h2>
+          <p className="text-gray-400 mb-6">
+            Boost your productivity with our top-rated app.
+          </p>
+          <Link
+            href="/browse?category=App"
+            className="text-blue-400 hover:text-blue-500 font-medium mt-auto"
+          >
+            Browse Apps →
+          </Link>
+        </div>
+
+        {/* Featured Game */}
+        <div className="bg-gray-800 rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+          <h2 className="text-2xl font-bold text-gray-100 mb-4">Featured Game</h2>
+          <p className="text-gray-400 mb-6">
+            Immerse yourself in an epic gaming adventure.
+          </p>
+          <Link
+            href="/browse?category=Game"
+            className="text-blue-400 hover:text-blue-500 font-medium mt-auto"
+          >
+            Browse Games →
+          </Link>
+        </div>
+
+        {/* Advanced Filters */}
+        <div className="bg-gray-800 rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+          <h2 className="text-2xl font-bold text-gray-100 mb-4">Advanced Filters</h2>
+          <p className="text-gray-400 mb-6">
+            Refine your search with powerful filtering tools.
+          </p>
+          <Link
+            href=""
+            disabled
+            className="text-blue-400 hover:text-blue-500 font-medium mt-auto"
+          >
+            Use Filters →
+          </Link>
+        </div>
+
+        {/* Top-Rated Picks */}
+        <div className="bg-gray-800 rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+          <h2 className="text-2xl font-bold text-gray-100 mb-4">Top-Rated Picks</h2>
+          <p className="text-gray-400 mb-6">
+            Explore the highest-rated apps and games.
+          </p>
+          <Link
+            href=""
+            disabled
+            className="text-blue-400 hover:text-blue-500 font-medium mt-auto"
+          >
+            View Top Picks →
+          </Link>
+        </div>
+
+        {/* New Releases */}
+        <div className="bg-gray-800 rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+          <h2 className="text-2xl font-bold text-gray-100 mb-4">New Releases</h2>
+          <p className="text-gray-400 mb-6">
+            Stay updated with the latest releases.
+          </p>
+          <Link
+            href="/browse?sort=date"
+            className="text-blue-400 hover:text-blue-500 font-medium mt-auto"
+          >
+            See New Releases →
+          </Link>
+        </div>
+
+        {/* Community Favorites */}
+        <div className="bg-gray-800 rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+          <h2 className="text-2xl font-bold text-gray-100 mb-4">Community Favorites</h2>
+          <p className="text-gray-400 mb-6">
+            Check out what's trending among users.
+          </p>
+          <Link
+            href=""
+            disabled
+            className="text-blue-400 hover:text-blue-500 font-medium mt-auto"
+          >
+            Browse Favorites →
+          </Link>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="text-center py-16 bg-gray-900">
+        <h2 className="text-3xl font-bold text-blue-400 mb-6">
+          Ready to Dive In?
+        </h2>
+        <p className="text-gray-300 mb-8">
+          Explore an endless world of apps and games tailored just for you.
+        </p>
+        <Link
+          href="/browse"
+          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          Start Browsing
+        </Link>
+      </section>
     </div>
   );
 }
