@@ -7,8 +7,9 @@ export default function SearchBar()
     const [search, setSearch] = useState();
 
     useEffect(() => {
-        setSearch(new URLSearchParams(window.location.search).get("search") || "")
-    }, [new URLSearchParams(window.location.search).get("search")]);
+        if (window)
+            setSearch(new URLSearchParams(window.location.search).get("search") || "")
+    }, [window ? new URLSearchParams(window.location.search).get("search") : window]);
 
     const updateSearch = (s) => {
         setSearch(s);

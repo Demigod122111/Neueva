@@ -6,7 +6,7 @@ const BrowsePage = () => {
   const [releases, setReleases] = useState([]);
   const [filteredReleases, setFilteredReleases] = useState([]);
   const [search, setSearch] = useState("");
-  const [sortOption, setSortOption] = useState("date");
+  const [sortOption, setSortOption] = useState("");
   const [filterTag, setFilterTag] = useState("all");
   const [filterCategory, setFilterCategory] = useState("all");
   const [page, setPage] = useState(1);
@@ -16,14 +16,15 @@ const BrowsePage = () => {
   const getQueryParams = () => {
     const params = new URLSearchParams(window.location.search);
     setSearch(params.get("search") || "");
-    setSortOption(params.get("sort") || "date");
+    setSortOption(params.get("sort") || "");
     setFilterTag(params.get("tag") || "all");
     setFilterCategory(params.get("category") || "all");
     setPage(parseInt(params.get("page")) || 1);
   };
 
   useEffect(() => {
-    getQueryParams();
+    if (window)
+      getQueryParams();
 
     const fetchReleases = async () => {
       try {
@@ -88,7 +89,8 @@ const BrowsePage = () => {
     setPage(1); // Reset to first page
 
     // Update query parameters in the URL
-    updateQueryParams();
+    if (window)
+      updateQueryParams();
   }, [search, filterTag, sortOption, releases, filterCategory, page]);
 
   // Pagination Logic
