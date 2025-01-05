@@ -19,3 +19,35 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* For Webkit browsers (e.g., Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+  height: 8px; /* Height of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #2c2c2c; /* Darker background for the scrollbar track */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555; /* Thumb color */
+  border-radius: 8px;
+  border: 2px solid #2c2c2c; /* Creates a space between the thumb and track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #777; /* Slightly lighter thumb on hover */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin; /* Thin scrollbar */
+  scrollbar-color: #555 #2c2c2c; /* Thumb and track color */
+}
+
+/* Optional styles for Edge/IE if needed */
+html {
+  -ms-overflow-style: none; /* Disable default scrollbar in IE/Edge */
+}
