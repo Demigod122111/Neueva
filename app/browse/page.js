@@ -70,7 +70,7 @@ const BrowsePage = () => {
       results = results.filter(
         (release) =>
           (release.isPreProduction == true && filterTag == "true") ||
-          (release.isPreProduction == false && filterTag == "false") ||
+          (release.isPreProduction == false && filterTag == "false" && release.isDraft == false) ||
           (release.isDraft == true && filterTag == "draft")
       );
     }
