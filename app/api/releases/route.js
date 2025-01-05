@@ -27,6 +27,7 @@ export async function GET() {
       name: release.name,
       tag: release.tag_name,
       createdAt: release.created_at,
+      description: release.body, // Adding the description field
       isPreProduction: release.prerelease,
       isDraft: release.draft,
       assets: release.assets.map((asset) => ({
