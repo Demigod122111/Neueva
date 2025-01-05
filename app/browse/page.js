@@ -70,7 +70,8 @@ const BrowsePage = () => {
       results = results.filter(
         (release) =>
           (release.isPreProduction == true && filterTag == "true") ||
-          (release.isPreProduction == false && filterTag == "false")
+          (release.isPreProduction == false && filterTag == "false") ||
+          (release.isDraft == true && filterTag == "draft")
       );
     }
 
@@ -155,8 +156,9 @@ const BrowsePage = () => {
           className="w-full md:w-1/3 px-4 py-2 bg-gray-800 text-white rounded-md"
         >
           <option value="all">All Tags</option>
-          <option value="true">Beta</option>
           <option value="false">Stable</option>
+          <option value="true">Beta</option>
+          <option value="draft">Draft</option>
         </select>
         <select
           value={filterCategory}
