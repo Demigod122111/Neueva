@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google"; 
 import Link from "next/link";
 import "./globals.css";
 import SearchBar from "./components/searchbar";
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
             <h1 className="text-2xl font-extrabold text-blue-400">
               <Link href="/">Neueva</Link>
             </h1>
-            <nav className="flex space-x-8 text-gray-300 font-medium">
+            <nav className="flex flex-wrap space-x-8 sm:space-x-4 text-gray-300 font-medium">
               <Link href="/browse" className="hover:text-blue-400">
                 Browse
               </Link>
@@ -51,7 +51,6 @@ export default function RootLayout({ children }) {
             </nav>
 
             <SearchBar />
-            
           </div>
         </header>
 
