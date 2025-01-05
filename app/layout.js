@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
             <h1 className="text-2xl font-extrabold text-blue-400">
               <Link href="/">Neueva</Link>
             </h1>
-            <nav className="flex flex-wrap space-x-8 sm:space-x-4 text-gray-300 font-medium">
+            <nav className="flex overflow-x-auto space-x-8 sm:space-x-4 text-gray-300 font-medium">
               <Link href="/browse" className="hover:text-blue-400">
                 Browse
               </Link>
