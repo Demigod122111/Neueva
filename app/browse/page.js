@@ -13,7 +13,8 @@ const BrowsePage = () => {
   const [filterCategory, setFilterCategory] = useState("all");
   const [page, setPage] = useState(1);
   const [selectedRelease, setSelectedRelease] = useState(null); // For the popup
-  const itemsPerPage = 6;
+  const [loading, setLoading] = useState(true);
+  const itemsPerPage = 9;
 
   // Function to parse URL query parameters
   const getQueryParams = () => {
@@ -35,6 +36,7 @@ const BrowsePage = () => {
         const data = await response.json();
         setReleases(data);
         setFilteredReleases(data);
+        setLoading(false);
       } catch (err) {
         console.error(err);
       }
@@ -177,7 +179,7 @@ const BrowsePage = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {paginatedReleases.length === 0 ? (
           <div className="col-span-3 text-center text-white">
-            {releases.length === 0 ? "Loading..." : "No Items"}
+            {loading ? "Loading..." : (releases.length === 0 ? "No Items" : "No Results")}
           </div>
         ) : (
           paginatedReleases.map((release) => (

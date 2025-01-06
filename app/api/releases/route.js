@@ -16,8 +16,7 @@ export async function GET() {
   }
 
   const releases = await response.json();
-
-  const formattedReleases = Object.entries(releases).length > 0 ? releases.map((release) => {
+  const formattedReleases = releases.length > 0 ? releases.map((release) => {
     // Logic to classify the release as an app or a game
     const isApp = release.name.toLowerCase().includes("app") || release.assets.some(asset => asset.name.toLowerCase().includes(".exe"));
     const isGame = release.name.toLowerCase().includes("game") || release.assets.some(asset => asset.name.toLowerCase().includes(".zip"));
@@ -39,6 +38,6 @@ export async function GET() {
       category: isGame ? "Game" : isApp ? "App" : "Unknown",
     };
   }) : [];
-
+  
   return NextResponse.json(formattedReleases);
 }
