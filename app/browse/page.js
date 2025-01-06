@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 const BrowsePage = () => {
   const [releases, setReleases] = useState([]);
@@ -264,7 +265,9 @@ const BrowsePage = () => {
         <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
           <div className="bg-gray-800 p-8 rounded-lg w-full max-w-lg">
             <h2 className="text-2xl font-semibold text-white">{selectedRelease.name}</h2>
-            <p className="mt-4 text-gray-400">{selectedRelease.description}</p>
+            <div className="mt-4 text-gray-400 prose prose-invert">
+              <ReactMarkdown>{selectedRelease.description}</ReactMarkdown>
+            </div>
             <button
               onClick={closeDescriptionModal}
               className="mt-6 bg-red-500 text-white py-2 px-4 rounded-md"
